@@ -1,0 +1,27 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "Node Express server with db and AWS",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/data/",
+      "logs/",
+      "node_modules/"
+    ]
+  },
+  "author": "Sophia Wallace",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "log4js": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
