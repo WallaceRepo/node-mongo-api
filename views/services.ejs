@@ -1,0 +1,56 @@
+<%- include('partials/header'); -%>
+
+<!-- <ul class="recipes">
+  <li class="recipe">
+    <img src="/report.svg" alt="report icon">
+    <h4>Banana Mask</h4>
+    <p>Banana, Vanilla Milk</p>
+  </li>
+  <li class="recipe">
+    <img src="/report.svg" alt="report icon">
+    <h4>Tropical Twist Mask</h4>
+    <p>Peach, Pinapple, Apple juice</p>
+  </li>
+  <li class="recipe">
+    <img src="/res.svg" alt="smoothie recipe icon">
+    <h4>Clean Mask</h4>
+    <p>Oats, Peanut butter, Milk, Banana, Blueberries</p>
+  </li>
+  <li class="recipe">
+    <img src="/report.svg" alt="report icon">
+    <h4>Banana Boost</h4>
+    <p>Banana, Vanilla Milk</p>
+  </li>
+  <li class="recipe">
+    <img src="/report.svg" alt="report icon">
+    <h4>Tropical Twist</h4>
+    <p>Peach, Pinapple, Apple juice</p>
+  </li>
+  <li class="recipe">
+    <img src="/report.svg" alt="report icon">
+    <h4>Pro Mask</h4>
+    <p>Oats, Peanut butter, Milk, Banana, Blueberries</p>
+  </li>
+</ul> -->
+
+<h2>All Services</h2>
+
+    <% if (Salon_services.length > 0) { %>
+      <ul class="recipes">  
+      <% Salon_services.forEach(Salon_service => { %>
+        <li class="recipe"> 
+        <a class="single" href="/services/<%= Salon_service._id %>">
+        <img src="/report.svg" alt="report icon">
+        <h4 class="title"><%= Salon_service.serviceName %></h4>
+        <p class="snippet"><%= Salon_service.serviceMaterials %></p>
+        <p class="snippet"><%= Salon_service.serviceDuration %></p>
+        <p class="snippet"><%= Salon_service.servicePrice %></p>
+       </a>
+      </li>
+        <% }) %>
+      </ul>     
+    <% } else { %>
+      <p>There are no services to display...</p>
+    <% } %>
+  
+<%- include('partials/footer'); -%>

@@ -1,0 +1,35 @@
+<html lang="en">
+<%- include("./partials/header.ejs") %>
+<body>
+  <% if (service != undefined || service !=null ) { %>
+   <div class="recipe">
+     <img src="/report.svg" alt="report icon"> 
+      <h2><%= service.serviceName %><h2>
+      </h2> Service Details</h2>
+      <p class="snippet"><%= service.serviceMaterials %></p>
+      <p class="snippet"><%= service.serviceDuration %></p>
+      <p class="snippet"><%= service.servicePrice %></p>
+      <a class="delete" data-doc="<%= service._id %>">Delete</a>
+    </div>
+  <%- include("./partials/footer.ejs") %>
+  <script>
+    const deleteBtn = document.querySelector('a.delete');
+    deleteBtn.addEventListener('click', e=>{
+      const endpoint = `/services/${deleteBtn.dataset.doc}`;
+      fetch(endpoint,{
+        method: "DELETE"
+      })
+      .then((response)=>{response.json()
+      .then( (data)=>window.location.href = data.redirect)
+       })
+      .catch((err)=>console.log(err));
+    })
+  </script>
+   <% } else {  %>
+    <script>
+      window.location.href = '/services';
+    </script>
+ <% } %>
+
+</body>
+</html>
